@@ -4,9 +4,9 @@ import {
   removeWhitespace,
   removeInvalidChars,
   repairPadding,
-} from '../src/modules/sanitizer';
-import { createLogger } from '../src/modules/logger';
-import { InvalidInputError } from '../src/errors/InvalidInputError';
+} from '../../src/modules/sanitizer';
+import { createLogger } from '../../src/modules/logger';
+import { InvalidInputError } from '../../src/errors/InvalidInputError';
 
 const logger = createLogger('test', false);
 

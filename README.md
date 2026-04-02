@@ -46,6 +46,17 @@ Building robust image handling means writing the same fragile, repetitive helper
 
 ---
 
+## 🚨 File Handling Behavior
+
+**img-sanitizer** employs strict security measures. Understanding how it reacts to specific corruptions is critical for system reliability:
+
+- ✂️ **Truncated images** → Automatically repaired if `repair: true`, otherwise rejected (`CorruptImageError`).
+- ☠️ **Invalid headers** → Rejected unconditionally (`UnsupportedTypeError`). Unrecognized magic bytes fail early.
+- 🦄 **Polyglot images** (e.g. image + trailing malicious code) → Accepted but **automatically sanitized** (trailing data is stripped during re-encoding).
+- 🔥 **Severe corruption** (e.g. bitflips throughout file body) → Rejected (`CorruptImageError`), unrecoverable even with repair enabled.
+
+---
+
 ## 📦 Installation
 
 ```bash
