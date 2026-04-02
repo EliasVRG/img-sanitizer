@@ -4,7 +4,7 @@
 
 **A robust Node.js/TypeScript library for image sanitization, validation, repair and normalization in backend pipelines.**
 
-[![CI](https://github.com/your-org/img-sanitizer/actions/workflows/ci.yml/badge.svg)](https://github.com/your-org/img-sanitizer/actions)
+[![CI](https://github.com/EliasVRG/img-sanitizer/actions/workflows/ci.yml/badge.svg)](https://github.com/EliasVRG/img-sanitizer/actions)
 [![npm version](https://img.shields.io/npm/v/img-sanitizer.svg)](https://npmjs.com/package/img-sanitizer)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Node.js](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen)](https://nodejs.org)
@@ -390,7 +390,7 @@ Tests cover:
 
 ```bash
 # Clone the repo
-git clone https://github.com/your-org/img-sanitizer.git
+git clone https://github.com/EliasVRG/img-sanitizer.git
 cd img-sanitizer
 
 # Install dependencies
@@ -410,4 +410,4 @@ npm run format
 
 ## 📄 License
 
-MIT © [Your Name](https://github.com/your-org)
+MIT © [Elias Victor Rocha Garcia](https://github.com/EliasVRG)
