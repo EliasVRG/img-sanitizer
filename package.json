@@ -17,6 +17,7 @@
     "dev": "tsc -p tsconfig.json --watch",
     "test": "jest --coverage",
     "test:watch": "jest --watch",
+    "test:dataset": "ts-node scripts/validate-dataset.ts",
     "lint": "eslint src tests cli --ext .ts",
     "lint:fix": "eslint src tests cli --ext .ts --fix",
     "format": "prettier --write \"src/**/*.ts\" \"tests/**/*.ts\" \"cli/**/*.ts\"",

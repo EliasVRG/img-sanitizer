@@ -55,6 +55,16 @@ Building robust image handling means writing the same fragile, repetitive helper
 - 🦄 **Polyglot images** (e.g. image + trailing malicious code) → Accepted but **automatically sanitized** (trailing data is stripped during re-encoding).
 - 🔥 **Severe corruption** (e.g. bitflips throughout file body) → Rejected (`CorruptImageError`), unrecoverable even with repair enabled.
 
+### 🛡️ Real-World Proof: The Polyglot Test
+We automatically run security tests preventing stealth code injections. For example, feeding a polyglot image (valid image but poisoned with trailing executable `<script>` payload bounds):
+
+```text
+📂 Testing: 03_polyglot.jpg
+[WARN] 03_polyglot.jpg (accepted without repair, payload sanitized) - Before: 1830b, After: 1801b
+🛡️ Payload check passed
+```
+*Output confirmation proving the successful removal of trailing payloads unconditionally.*
+
 ---
 
 ## 📦 Installation

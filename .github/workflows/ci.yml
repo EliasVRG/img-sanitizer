@@ -37,6 +37,9 @@ jobs:
       - name: Run tests with coverage
         run: npm test -- --coverage --coverageReporters=lcov
 
+      - name: Validate dataset on corrupt files
+        run: npm run test:dataset
+
       - name: Build production bundle
         run: npm run build
 
