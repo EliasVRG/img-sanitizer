@@ -2,7 +2,8 @@ import { InvalidInputError } from '../errors/InvalidInputError';
 import type { Logger } from './logger';
 
 /** Regex to match and capture the base64 payload from a data URI. */
-const DATA_URI_REGEX = /^data:[a-zA-Z0-9][a-zA-Z0-9!#$&\-^_]*\/[a-zA-Z0-9][a-zA-Z0-9!#$&\-^_]*(?:;[^;,]+)*;base64,/i;
+const DATA_URI_REGEX =
+  /^data:[a-zA-Z0-9][a-zA-Z0-9!#$&\-^_]*\/[a-zA-Z0-9][a-zA-Z0-9!#$&\-^_]*(?:;[^;,]+)*;base64,/i;
 
 /** Characters not valid in base64 (excluding padding '='). */
 const INVALID_BASE64_CHARS = /[^A-Za-z0-9+/=]/g;

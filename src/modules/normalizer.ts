@@ -22,7 +22,12 @@ export async function normalizeImage(
   currentMime: string,
   logger: Logger,
 ): Promise<NormalizeResult> {
-  logger.debug('normalizeImage: currentMime =', currentMime, 'targetFormat =', targetFormat ?? 'none');
+  logger.debug(
+    'normalizeImage: currentMime =',
+    currentMime,
+    'targetFormat =',
+    targetFormat ?? 'none',
+  );
 
   let sharpInstance = sharp(buffer).rotate(); // rotate() auto-fixes EXIF orientation
 

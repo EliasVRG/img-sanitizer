@@ -35,10 +35,7 @@ program
     'Output format: buffer (binary file) or base64 (text file)',
     'buffer',
   )
-  .option(
-    '-f, --format <format>',
-    'Normalize output to: jpeg, png, or webp',
-  )
+  .option('-f, --format <format>', 'Normalize output to: jpeg, png, or webp')
   .option('-r, --repair', 'Attempt to repair corrupt images', false)
   .option('-p, --prefix', 'Include data:image;base64 prefix in base64 output', false)
   .option('-d, --debug', 'Enable verbose debug logging', false)
@@ -87,7 +84,9 @@ async function run(): Promise<void> {
     }
     inputData = Buffer.concat(chunks);
     if (inputData.length === 0) {
-      process.stderr.write('[img-sanitizer] Error: No input provided. Use --input or pipe data via stdin.\n');
+      process.stderr.write(
+        '[img-sanitizer] Error: No input provided. Use --input or pipe data via stdin.\n',
+      );
       process.exit(1);
     }
   }
@@ -97,26 +96,36 @@ async function run(): Promise<void> {
   const outputType = opts.outputType as OutputType;
 
   if (!['buffer', 'base64'].includes(inputType)) {
-    process.stderr.write(`[img-sanitizer] Error: --inputType must be 'buffer' or 'base64', got '${inputType}'\n`);
+    process.stderr.write(
+      `[img-sanitizer] Error: --inputType must be 'buffer' or 'base64', got '${inputType}'\n`,
+    );
     process.exit(1);
   }
 
   if (!['buffer', 'base64'].includes(outputType)) {
-    process.stderr.write(`[img-sanitizer] Error: --outputType must be 'buffer' or 'base64', got '${outputType}'\n`);
+    process.stderr.write(
+      `[img-sanitizer] Error: --outputType must be 'buffer' or 'base64', got '${outputType}'\n`,
+    );
     process.exit(1);
   }
 
   const validFormats: SupportedFormat[] = ['jpeg', 'png', 'webp'];
   if (opts.format && !validFormats.includes(opts.format as SupportedFormat)) {
-    process.stderr.write(`[img-sanitizer] Error: --format must be one of: jpeg, png, webp. Got '${opts.format}'\n`);
+    process.stderr.write(
+      `[img-sanitizer] Error: --format must be one of: jpeg, png, webp. Got '${opts.format}'\n`,
+    );
     process.exit(1);
   }
 
   // Auto-detect output format from file extension if not specified
   const outputExt = extname(opts.output).replace('.', '').toLowerCase();
-  const inferredFormat = (['jpeg', 'jpg', 'png', 'webp'].includes(outputExt)
-    ? outputExt === 'jpg' ? 'jpeg' : outputExt
-    : undefined) as SupportedFormat | undefined;
+  const inferredFormat = (
+    ['jpeg', 'jpg', 'png', 'webp'].includes(outputExt)
+      ? outputExt === 'jpg'
+        ? 'jpeg'
+        : outputExt
+      : undefined
+  ) as SupportedFormat | undefined;
 
   const normalizeFormat = (opts.format as SupportedFormat | undefined) ?? inferredFormat;
 

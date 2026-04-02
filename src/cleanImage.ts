@@ -41,7 +41,10 @@ export async function cleanImage(
 
   const logger = createLogger('cleanImage', debug);
   logger.debug('--- cleanImage start ---');
-  logger.debug('options:', JSON.stringify({ inputType, outputType, includeDataPrefix, repair, normalizeFormat }));
+  logger.debug(
+    'options:',
+    JSON.stringify({ inputType, outputType, includeDataPrefix, repair, normalizeFormat }),
+  );
 
   // ── Step 1: Decode input into a raw Buffer ────────────────────────────────
   const rawBuffer = decodeInput(input, inputType, logger);
@@ -108,7 +111,13 @@ export async function cleanImage(
   }
 
   // ── Step 7: Encode output ─────────────────────────────────────────────────
-  const outputData = encodeOutput(processedBuffer, outputType, includeDataPrefix, currentMime, logger);
+  const outputData = encodeOutput(
+    processedBuffer,
+    outputType,
+    includeDataPrefix,
+    currentMime,
+    logger,
+  );
   const finalSize = processedBuffer.length;
 
   logger.debug('Step 7 done: finalSize =', finalSize, 'wasRepaired =', wasRepaired);

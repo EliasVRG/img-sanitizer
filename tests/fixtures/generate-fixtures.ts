@@ -52,18 +52,14 @@ export async function generateFixtures(): Promise<Fixtures> {
   const truncatedJpegBuffer = validJpegBuffer.subarray(0, Math.floor(validJpegBuffer.length / 2));
 
   // Random bytes that are definitely not an image
-  const randomBytesBuffer = Buffer.from(
-    Array.from({ length: 256 }, (_, i) => i % 256),
-  );
+  const randomBytesBuffer = Buffer.from(Array.from({ length: 256 }, (_, i) => i % 256));
 
   // Valid base64 representations
   const validJpegBase64 = validJpegBuffer.toString('base64');
   const validJpegBase64WithPrefix = `data:image/jpeg;base64,${validJpegBase64}`;
 
   // base64 with embedded whitespace (line-wrapped style)
-  const base64WithWhitespace = validJpegBase64
-    .match(/.{1,76}/g)!
-    .join('\n');
+  const base64WithWhitespace = validJpegBase64.match(/.{1,76}/g)!.join('\n');
 
   // base64 with invalid characters interspersed
   const base64WithInvalidChars = validJpegBase64

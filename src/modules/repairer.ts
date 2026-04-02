@@ -51,7 +51,6 @@ export async function repairImage(
   }
 
   throw new CorruptImageError(
-    'Image is corrupt and all repair attempts failed. ' +
-      'The data may be too damaged to recover.',
+    'Image is corrupt and all repair attempts failed. ' + 'The data may be too damaged to recover.',
   );
 }

@@ -6,6 +6,7 @@ import {
   repairPadding,
 } from '../src/modules/sanitizer';
 import { createLogger } from '../src/modules/logger';
+import { InvalidInputError } from '../src/errors/InvalidInputError';
 
 const logger = createLogger('test', false);
 
@@ -110,7 +111,6 @@ describe('sanitizer module', () => {
     });
 
     it('throws InvalidInputError when result after sanitization is empty', () => {
-      const { InvalidInputError } = require('../src/errors/InvalidInputError');
       // A string of only invalid base64 chars (everything stripped)
       const input = '!@#$%^&*()';
       expect(() => sanitizeBase64(input, logger)).toThrow(InvalidInputError);
