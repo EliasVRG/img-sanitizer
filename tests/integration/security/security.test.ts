@@ -6,7 +6,6 @@ import {
   createAppendedPayload,
 } from '../../helpers';
 import { UnsupportedTypeError } from '../../../src/errors/UnsupportedTypeError';
-import { CorruptImageError } from '../../../src/errors/CorruptImageError';
 import type { TestFixtures } from '../../helpers';
 
 describe('Integration: Security Domain', () => {

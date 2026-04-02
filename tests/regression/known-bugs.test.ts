@@ -1,6 +1,5 @@
 import { cleanImage } from '../../src/cleanImage';
 import { generateBaseFixtures, toTruncatedBase64 } from '../helpers';
-import { InvalidInputError } from '../../src/errors/InvalidInputError';
 import type { TestFixtures } from '../helpers';
 
 describe('Regression Tests', () => {
