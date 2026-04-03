@@ -24,6 +24,7 @@
     "format:check": "prettier --check \"src/**/*.ts\" \"tests/**/*.ts\" \"cli/**/*.ts\"",
     "fixtures": "ts-node tests/fixtures/generate-fixtures.ts",
     "cli": "ts-node cli/index.ts",
+    "benchmark": "ts-node scripts/benchmark.ts",
     "prepublishOnly": "npm run lint && npm test && npm run build",
     "clean": "rimraf dist"
   },
